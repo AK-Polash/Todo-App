@@ -1,11 +1,22 @@
 let input = document.querySelector(".input");
-let button = document.querySelector(".button");
+let addButton = document.querySelector(".button");
 let ul = document.querySelector(".ul");
 
-button.addEventListener("click", () => {
+addButton.addEventListener("click", () => {
   todo();
 });
 
 function todo() {
   ul.innerHTML += `<li> ${input.value} <button class="delete"> Delete Task </button> </li>`;
+
+  let removeButton = document.querySelectorAll(".delete");
+  let buttonArr = Array.from(removeButton);
+
+  buttonArr.map((item, index) => {
+
+    item.addEventListener("click", () => {
+      buttonArr.splice(index, 1);
+    });
+
+  });
 }
