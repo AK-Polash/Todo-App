@@ -3,9 +3,9 @@
   padding: 0;
   box-sizing: border-box;
 }
-/* ul,ol{
+ul,ol{
     list-style: none;
-} */
+}
 a {
   text-decoration: none;
 }
@@ -46,6 +46,15 @@ img {
   row-gap: 10px;
   margin-top: 20px;
 }
-.delete{
-    padding: 7px 10px;
+.list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  column-gap: 50px;
+}
+.todo__title{
+  width: 300px;
+}
+.delete {
+  padding: 7px 10px;
 }

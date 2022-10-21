@@ -4,25 +4,22 @@ let ul = document.querySelector(".ul");
 let mainArr = [];
 
 addButton.addEventListener("click", () => {
+  mainArr.push(input.value);
   todo();
 });
 
 function todo() {
-  ul.innerHTML += `<li> <span> ${input.value} </span> <button class="delete"> Delete Task </button> </li>`;
-  let listValue = ul.lastElementChild.children[0].innerHTML;
-  mainArr.push(listValue);
-  console.log(mainArr);
+  ul.innerHTML = "";
+  mainArr.map((item) => {
+    ul.innerHTML += `<li class="list"> <span class="todo__title"> ${item} </span> <button class="delete"> Delete Task </button> </li>`;
+  });
 
   let removeButton = document.querySelectorAll(".delete");
-  let buttonArr = Array.from(removeButton);
-
-  buttonArr.map((button, index) => {
+  let removeButtonArray = Array.from(removeButton);
+  removeButtonArray.map((button, index) => {
     button.addEventListener("click", () => {
-      button.parentElement.remove();
       mainArr.splice(index, 1);
-      console.log(mainArr);
+      todo();
     });
   });
 }
-
-// next target: html to array korte hobe
