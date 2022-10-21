@@ -12,11 +12,11 @@ function todo() {
   let removeButton = document.querySelectorAll(".delete");
   let buttonArr = Array.from(removeButton);
 
-  buttonArr.map((item, index) => {
-
-    item.addEventListener("click", () => {
-      buttonArr.splice(index, 1);
+  buttonArr.map((button) => {
+    button.addEventListener("click", () => {
+      button.parentElement.remove();
     });
-
   });
 }
+
+// next target: html to array korte hobe
