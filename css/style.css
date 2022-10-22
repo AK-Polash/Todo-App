@@ -3,8 +3,9 @@
   padding: 0;
   box-sizing: border-box;
 }
-ul,ol{
-    list-style: none;
+ul,
+ol {
+  list-style: none;
 }
 a {
   text-decoration: none;
@@ -34,9 +35,12 @@ img {
 .input::placeholder {
   padding: 0 20px;
 }
-.button {
+.button, .button__two {
   width: 100px;
   height: 50px;
+}
+.button__two{
+  /* display: none; */
 }
 .ul {
   display: flex;
@@ -52,9 +56,14 @@ img {
   align-items: center;
   column-gap: 50px;
 }
-.todo__title{
-  width: 300px;
+.todo__title {
+  width: 180px;
 }
-.delete {
+.delete,
+.edit,
+.save {
   padding: 7px 10px;
+}
+.save{
+  /* visibility: hidden; */
 }
