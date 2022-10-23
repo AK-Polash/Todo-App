@@ -1,8 +1,9 @@
 let input = document.querySelector(".input");
 let addButton = document.querySelector(".button");
-// let saveButton = document.querySelector(".button__two");
+let saveChangeButton = document.querySelector(".button__two");
 let ul = document.querySelector(".ul");
 let mainArr = [];
+saveChangeButton.style.display = "none";
 
 addButton.addEventListener("click", () => {
   mainArr.push(input.value);
@@ -13,9 +14,10 @@ addButton.addEventListener("click", () => {
 function todo() {
   ul.innerHTML = "";
   mainArr.map((item) => {
-    ul.innerHTML += `<li class="list"> <span class="todo__title"> ${item} </span> <button class="delete"> Delete </button> <button class="edit"> Edit Task </button> <button class="save"> Save Task </button> </li>`;
+    ul.innerHTML += `<li class="list"> <span class="todo__title"> ${item} </span> <button class="delete"> Delete </button> <button class="edit"> Edit Task </button>`;
   });
 
+  // Remove Buttons:
   let removeButton = document.querySelectorAll(".delete");
   let removeButtonArray = Array.from(removeButton);
   removeButtonArray.map((button, index) => {
@@ -25,28 +27,26 @@ function todo() {
     });
   });
 
-  // Edit Button:
+  // Edit Buttons:
   let editButton = document.querySelectorAll(".edit");
   let editButtonArray = Array.from(editButton);
 
   editButtonArray.map((editItem, index) => {
     editItem.addEventListener("click", () => {
       input.value = mainArr[index];
-      // editItem[index].style.visibility = "visible";
-      console.log(mainArr);
+      addButton.style.display = "none";
+      saveChangeButton.style.display = "block";
 
       // Save Button:
-      let saveTask = document.querySelectorAll(".save");
-      let saveTaskArray = Array.from(saveTask);
-
-      saveTaskArray.map((saveItem, index) => {
-        saveItem.addEventListener("click", () => {
-          mainArr.splice(index, 1, input.value);
-          todo();
-          console.log(mainArr);
-        });
+      saveChangeButton.addEventListener("click", () => {
+        saveChangeButton.style.display = "none";
+        addButton.style.display = "block";
+        mainArr.splice(index, 1, input.value);
+        console.log(index);
+        console.log(mainArr);
+        todo();
       });
+      todo();
     });
   });
 }
-
